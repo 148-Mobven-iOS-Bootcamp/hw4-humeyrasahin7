@@ -573,9 +573,23 @@
                             <constraint firstItem="2tJ-8T-LVY" firstAttribute="leading" secondItem="1wz-m2-fT5" secondAttribute="leading" id="xTV-xz-lhW"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="x9X-Is-1KR"/>
+                    <navigationItem key="navigationItem" id="x9X-Is-1KR">
+                        <rightBarButtonItems>
+                            <barButtonItem enabled="NO" title="randomFont" image="shuffle" catalog="system" id="dma-4A-djD" userLabel="Random Font">
+                                <connections>
+                                    <action selector="randomFontButtonTapped:" destination="8R7-g3-9b9" id="y4c-YY-X1T"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem title="Open Html" id="apV-qS-SIp">
+                                <connections>
+                                    <action selector="openHtmlButtonTapped:" destination="8R7-g3-9b9" id="ZWE-7p-orI"/>
+                                </connections>
+                            </barButtonItem>
+                        </rightBarButtonItems>
+                    </navigationItem>
                     <connections>
                         <outlet property="activityIndicator" destination="hej-Yj-pi0" id="0OO-G2-3b8"/>
+                        <outlet property="randomFontButton" destination="dma-4A-djD" id="SrL-PM-eSv"/>
                         <outlet property="webView" destination="2tJ-8T-LVY" id="V70-lq-GYh"/>
                     </connections>
                 </viewController>
@@ -828,6 +842,7 @@
         <image name="chevron.forward" catalog="system" width="96" height="128"/>
         <image name="location" catalog="system" width="128" height="118"/>
         <image name="safari" catalog="system" width="128" height="121"/>
+        <image name="shuffle" catalog="system" width="128" height="95"/>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

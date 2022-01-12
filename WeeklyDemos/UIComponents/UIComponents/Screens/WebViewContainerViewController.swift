@@ -13,6 +13,8 @@ class WebViewContainerViewController: UIViewController {
     @IBOutlet weak var webView: WKWebView!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
 
+    @IBOutlet weak var randomFontButton: UIBarButtonItem!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -22,7 +24,11 @@ class WebViewContainerViewController: UIViewController {
     }
 
     var urlString = "https://www.google.com"
-
+    
+    var isHtmlOpened = false
+    var htmlString = "<html><body><p>Hello!</p></body></html>"
+    var newHtmlString = ""
+    
     func configureWebView() {
         guard let url = URL(string: urlString) else { return }
         let urlRequest = URLRequest(url: url)
@@ -69,6 +75,12 @@ class WebViewContainerViewController: UIViewController {
     @IBAction func backButtonTapped(_ sender: UIBarButtonItem) {
         if webView.canGoBack{
             webView.goBack()
+        } else if isHtmlOpened{
+            isHtmlOpened = false
+            randomFontButton.isEnabled = false
+            guard let url = URL(string: urlString) else { return }
+            let urlRequest = URLRequest(url: url)
+            webView.load(urlRequest)
         }
     }
     
@@ -82,6 +94,33 @@ class WebViewContainerViewController: UIViewController {
         if webView.canGoForward{
             webView.goForward()
         }
+    }
+    
+//MARK: Opening String html and Changing Font
+    
+    @IBAction func openHtmlButtonTapped(_ sender: UIBarButtonItem) {
+        webView.loadHTMLString(htmlString, baseURL: nil)
+        isHtmlOpened = true
+        randomFontButton.isEnabled = true
+        
+    }
+    
+  
+    @IBAction func randomFontButtonTapped(_ sender: UIBarButtonItem) {
+        newHtmlString = newHtmlString(old: htmlString)
+        webView.loadHTMLString(newHtmlString, baseURL: nil)
+        
+    }
+    
+    func newHtmlString(old: String) -> String{
+        let font = UIFont.familyNames.randomElement()!
+        print(font)
+        var fontHtml = ""
+        if old.contains("<p>"){
+           fontHtml = old.replacingOccurrences(of: "<p>", with: "<p style='font-family: \(font); font-size: 50px'>")
+            print(fontHtml)
+        }
+        return fontHtml
     }
     
 }
