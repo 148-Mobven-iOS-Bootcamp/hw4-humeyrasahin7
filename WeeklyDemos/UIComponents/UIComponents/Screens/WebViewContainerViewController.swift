@@ -57,12 +57,33 @@ class WebViewContainerViewController: UIViewController {
         if keyPath == "loading" {
             webView.isLoading ? activityIndicator.startAnimating() : activityIndicator.stopAnimating()
         }
-
     }
 
+//MARK: Bar Button Item IBAction Functions
+    
     @IBAction func reloadButtonTapped(_ sender: UIBarButtonItem) {
         webView.reload()
     }
+    
+    
+    @IBAction func backButtonTapped(_ sender: UIBarButtonItem) {
+        if webView.canGoBack{
+            webView.goBack()
+        }
+    }
+    
+    @IBAction func openInSafariButtonTapped(_ sender: UIBarButtonItem) {
+        if let url = webView.url {
+            UIApplication.shared.open(url)
+        }
+    }
+    
+    @IBAction func forwardButtonTapped(_ sender: UIBarButtonItem) {
+        if webView.canGoForward{
+            webView.goForward()
+        }
+    }
+    
 }
 
 extension WebViewContainerViewController: WKNavigationDelegate {

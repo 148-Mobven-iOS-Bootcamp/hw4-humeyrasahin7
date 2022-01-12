@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="dLW-i8-o6M">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="dLW-i8-o6M">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
@@ -101,10 +101,10 @@
                                 <rect key="frame" x="7" y="531" width="414" height="164"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <date key="minimumDate" timeIntervalSinceReferenceDate="-63118800">
-                                    <!--1999-01-01 11:00:00 +0000-->
+                                    <!--1999-01-01 11:00:00 AM +0000-->
                                 </date>
                                 <date key="maximumDate" timeIntervalSinceReferenceDate="694177200">
-                                    <!--2022-12-31 11:00:00 +0000-->
+                                    <!--2022-12-31 11:00:00 AM +0000-->
                                 </date>
                                 <connections>
                                     <action selector="datePıckerValueChanged:" destination="BYZ-38-t0r" eventType="valueChanged" id="qnB-QL-9OA"/>
@@ -463,11 +463,11 @@
                                                 <rect key="frame" x="0.0" y="44.5" width="414" height="43.5"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="qtK-F7-FH4" id="qmu-G0-CQS">
-                                                    <rect key="frame" x="0.0" y="0.0" width="385.5" height="43.5"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="384.5" height="43.5"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
                                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="G8R-7A-SDZ">
-                                                            <rect key="frame" x="20" y="0.0" width="357.5" height="43.5"/>
+                                                            <rect key="frame" x="20" y="0.0" width="356.5" height="43.5"/>
                                                             <autoresizingMask key="autoresizingMask"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="0.0"/>
                                                             <nil key="textColor"/>
@@ -536,6 +536,24 @@
                                     <barButtonItem title="reload" image="arrow.clockwise" catalog="system" id="QY5-RS-4wc">
                                         <connections>
                                             <action selector="reloadButtonTapped:" destination="8R7-g3-9b9" id="xfH-1m-Kq8"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="Pmu-Vy-xgx"/>
+                                    <barButtonItem title="goBack" image="chevron.backward" catalog="system" id="gal-mX-2iz">
+                                        <connections>
+                                            <action selector="backButtonTapped:" destination="8R7-g3-9b9" id="Rx5-9w-ibI"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="xgs-o2-vib"/>
+                                    <barButtonItem title="openInSafari" image="safari" catalog="system" id="4Lp-Jy-aUW">
+                                        <connections>
+                                            <action selector="openInSafariButtonTapped:" destination="8R7-g3-9b9" id="sfr-SN-MMY"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="zx6-Pj-RDU"/>
+                                    <barButtonItem title="goForward" image="chevron.forward" catalog="system" id="hq7-Fp-D60">
+                                        <connections>
+                                            <action selector="forwardButtonTapped:" destination="8R7-g3-9b9" id="WUu-xZ-JR7"/>
                                         </connections>
                                     </barButtonItem>
                                 </items>
@@ -806,7 +824,10 @@
     <resources>
         <image name="arrow.clockwise" catalog="system" width="115" height="128"/>
         <image name="bgImage" width="640" height="360"/>
+        <image name="chevron.backward" catalog="system" width="96" height="128"/>
+        <image name="chevron.forward" catalog="system" width="96" height="128"/>
         <image name="location" catalog="system" width="128" height="118"/>
+        <image name="safari" catalog="system" width="128" height="121"/>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
