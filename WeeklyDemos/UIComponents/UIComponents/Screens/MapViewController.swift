@@ -40,8 +40,8 @@ class MapViewController: UIViewController {
         case .authorizedAlways, .authorizedWhenInUse, .authorized:
             locationManager.requestLocation()
         case .denied, .restricted:
-            //popup gosterecegiz. go to settings butonuna basildiginda
-            //kullaniciyi uygulamamizin settings sayfasina gonder
+            //MARK: Odev Fonkunun Cagirilmasi
+            showAlertView()
             break
         case .notDetermined:
             locationManager.requestWhenInUseAuthorization()
@@ -81,4 +81,16 @@ extension MapViewController: CLLocationManagerDelegate {
 
 extension MapViewController: MKMapViewDelegate {
 
+}
+//MARK: Odev Extention Func
+extension MapViewController{
+    func showAlertView(){
+        let ac = UIAlertController(title: "Location Access Denied or Restricted", message: "What do you want to do?", preferredStyle: .alert)
+        ac.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+        ac.addAction(UIAlertAction(title: "Go to Settings", style: .default, handler: { (action) -> Void in
+            let settingsUrl = NSURL(string: UIApplication.openSettingsURLString)
+            UIApplication.shared.open(settingsUrl! as URL)
+        }))
+        present(ac, animated: true)
+    }
 }
