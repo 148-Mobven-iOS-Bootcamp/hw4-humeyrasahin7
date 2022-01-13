@@ -114,11 +114,9 @@ class WebViewContainerViewController: UIViewController {
     
     func newHtmlString(old: String) -> String{
         let font = UIFont.familyNames.randomElement()!
-        print(font)
         var fontHtml = ""
         if old.contains("<p>"){
            fontHtml = old.replacingOccurrences(of: "<p>", with: "<p style='font-family: \(font); font-size: 50px'>")
-            print(fontHtml)
         }
         return fontHtml
     }
